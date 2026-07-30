@@ -1,206 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free QR Code Generator - ViralScope</title>
     
+    <!-- SEO Ключови думи и мета описания за Google -->
+    <title>Безплатен QR код генератор онлайн - Създай QR код за секунди | ViralScope</title>
+    <meta name="description" content="Създай лесно и бързо безплатен QR код за уебсайт, социални мрежи или текст с нашия онлайн генератор. Генерирай и изтегли QR код за секунди!">
+    <meta name="keywords" content="qr код генератор, безплатен qr код, създай qr код онлайн, qr code generator">
+
     <!-- Google AdSense Code -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8491546534610225" crossorigin="anonymous"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-    
     <style>
-        :root {
-            --primary: #0066ff;
-            --primary-hover: #0052cc;
-            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-        }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-main);
+            background-color: #f0f2f5;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            color: #333;
         }
-
         .container {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 450px;
             width: 100%;
-            max-width: 440px;
-            box-sizing: border-box;
             text-align: center;
         }
-
-        .logo-badge {
-            display: inline-block;
-            background: #eff6ff;
-            color: var(--primary);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 6px 12px;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
         h1 {
-            font-size: 24px;
-            margin: 0 0 8px 0;
-            color: var(--text-main);
-            font-weight: 800;
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
         }
-
         p.subtitle {
-            margin: 0 0 25px 0;
-            color: var(--text-muted);
             font-size: 14px;
-        }
-
-        .input-group {
-            position: relative;
+            color: #666;
             margin-bottom: 20px;
         }
-
         input[type="text"] {
             width: 100%;
-            padding: 15px 16px;
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            font-size: 15px;
-            color: var(--text-main);
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
             box-sizing: border-box;
+            margin-bottom: 15px;
             outline: none;
-            transition: all 0.2s ease;
-            background: #f8fafc;
+            transition: border-color 0.2s;
         }
-
         input[type="text"]:focus {
-            border-color: var(--primary);
-            background: #fff;
-            box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+            border-color: #0066cc;
         }
-
-        .btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
-        }
-
-        .btn:hover {
-            background: var(--primary-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(0, 102, 255, 0.3);
-        }
-
-        .btn-secondary {
-            background: #f1f5f9;
-            color: var(--text-main);
-            margin-top: 12px;
-            box-shadow: none;
-        }
-
-        .btn-secondary:hover {
-            background: #e2e8f0;
-            box-shadow: none;
-        }
-
-        #qrcode {
-            margin-top: 25px;
+        .qr-box {
+            margin: 20px 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 200px;
         }
-
-        #qrcode canvas {
-            padding: 15px;
+        .qr-box img {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 10px;
             background: #fff;
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            max-width: 200px;
+            height: auto;
+        }
+        .download-btn {
+            display: inline-block;
+            background-color: #0066cc;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background-color: #0052a3;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="logo-badge">ViralScope Tools</div>
-    <h1>QR Code Generator</h1>
-    <p class="subtitle">Create a fast and high-quality QR code in seconds</p>
+    <h1>Безплатен QR код генератор</h1>
+    <p class="subtitle">Въведи линк или текст, за да генерираш QR код моментално</p>
 
-    <div class="input-group">
-        <input type="text" id="urlInput" placeholder="Enter link here (e.g., https://...)" value="https://viralscope.site" oninput="generateQR()" />
+    <input type="text" id="textInput" value="https://viralscope.site" placeholder="Напиши линк тук..." oninput="generateQR()">
+
+    <div class="qr-box">
+        <img id="qrImage" src="" alt="QR Code">
     </div>
-    
-    <button class="btn" onclick="generateQR()">Generate QR Code</button>
 
-    <div id="qrcode"></div>
-
-    <button class="btn btn-secondary" id="downloadBtn" onclick="downloadQR()" style="display:none;">Download as Image</button>
+    <a id="downloadBtn" class="download-btn" href="#" download="qrcode.png">Изтегли като изображение</a>
 </div>
 
 <script>
     function generateQR() {
-        const qrContainer = document.getElementById('qrcode');
-        qrContainer.innerHTML = "";
-        
-        const url = document.getElementById('urlInput').value.trim();
+        const text = document.getElementById('textInput').value.trim();
+        const qrImage = document.getElementById('qrImage');
         const downloadBtn = document.getElementById('downloadBtn');
 
-        if(!url) {
-            downloadBtn.style.display = 'none';
+        if (text === "") {
+            qrImage.src = "";
             return;
         }
 
-        $(qrContainer).qrcode({
-            render: 'canvas',
-            width: 180,
-            height: 180,
-            text: url,
-            background: "#ffffff",
-            foreground: "#0f172a"
-        });
-
-        downloadBtn.style.display = 'block';
+        // Използваме надеждно API за генериране на QR код
+        const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(text)}`;
+        
+        qrImage.src = qrApiUrl;
+        downloadBtn.href = qrApiUrl;
     }
 
-    function downloadQR() {
-        const canvas = document.querySelector('#qrcode canvas');
-        if (!canvas) return;
-
-        const image = canvas.toDataURL("image/png");
-        const a = document.createElement("a");
-        a.href = image;
-        a.download = "qrcode-viralscope.png";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    }
-
-    generateQR();
+    // Генериране при зареждане на страницата
+    window.onload = generateQR;
 </script>
 
 </body>
